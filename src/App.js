@@ -30,20 +30,20 @@ function App() {
     },
   ];
 
-  // return (
-  //   <div>
-  //     <h2>Let's get started!</h2>
-  //     <Expenses item_array={expenses} />
-  //   </div>
-  // );
+  return (
+    <div>
+      <h2>Let's get started!</h2>
+      <Expenses item_array={expenses} />
+    </div>
+  );
 
   // Implementation using React.createElement() method - actual working of React.JS.
-  return React.createElement(
-    "div",
-    {},
-    React.createElement("h2", {}, "Let's get started!"),
-    React.createElement(Expenses, { item_array: expenses })
-  );
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { item_array: expenses })
+  // );
 }
 
 export default App;

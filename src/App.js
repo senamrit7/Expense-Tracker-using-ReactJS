@@ -1,6 +1,7 @@
 import React from "react";
 
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
@@ -32,10 +33,18 @@ const App = () => {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense />
       <Expenses item_array={expenses} />
     </div>
   );
+
+  // The dummy h2 tag is removed here!
+  // return (
+  //   <div>
+  //     <h2>Let's get started!</h2>
+  //     <Expenses item_array={expenses} />
+  //   </div>
+  // );
 
   // Implementation using React.createElement() method - actual working of React.JS.
   // return React.createElement(
@@ -44,6 +53,6 @@ const App = () => {
   //   React.createElement("h2", {}, "Let's get started!"),
   //   React.createElement(Expenses, { item_array: expenses })
   // );
-}
+};
 
 export default App;

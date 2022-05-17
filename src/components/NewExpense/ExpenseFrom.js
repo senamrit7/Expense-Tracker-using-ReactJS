@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   const [titleEntered, setTitleEntered] = useState("");
   const [amountEntered, setAmountEntered] = useState("");
   const [dateEntered, setDateEntered] = useState("");
@@ -70,6 +70,9 @@ const ExpenseForm = () => {
     };
 
     // console.log(expenseData);
+
+    // For sending data to parent components - the function is passed as a pointer to this component
+    props.onSaveExpenseForm(expenseData);
 
     // For Two Way Data Binding - the "value" attribute is used for this purpose!
     setTitleEntered("");

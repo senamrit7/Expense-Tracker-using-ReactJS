@@ -69,7 +69,12 @@ const ExpenseForm = () => {
       date: new Date(dateEntered),
     };
 
-    console.log(expenseData);
+    // console.log(expenseData);
+
+    // For Two Way Data Binding - the "value" attribute is used for this purpose!
+    setTitleEntered("");
+    setAmountEntered("");
+    setDateEntered("");
   };
 
   return (
@@ -77,7 +82,11 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={titleEntered}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -85,6 +94,7 @@ const ExpenseForm = () => {
             type="number"
             min="0.01"
             step="0.01"
+            value={amountEntered}
             onChange={amountChangeHandler}
           />
         </div>
@@ -94,6 +104,7 @@ const ExpenseForm = () => {
             type="date"
             min="1950-01-01"
             max="2050-12-31"
+            value={dateEntered}
             onChange={dateChangeHandler}
           />
         </div>

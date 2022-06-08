@@ -17,20 +17,54 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === selectedFilterYear;
   });
 
+  // Part of Method 3 - Rendering conditional content
+  let expensesContent = <p>No expenses found.</p>;
+  if(filteredYearExpenses.length > 0){
+    expensesContent = filteredYearExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ))
+  }
+
   return (
     <Card className="expenses">
       <ExpensesFilter
         defaultSelectedYear={selectedFilterYear}
         onChangeExpensesFilter={expensesFilterHandler}
       />
-      {filteredYearExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
+
+      {/* Method 3 - Rendering conditional content */}
+      {expensesContent}
+
+      {/* Method 2 - Rendering conditional content - expression after "&&" is executed if 1st statement is true */}
+      {/* {filteredYearExpenses.length === 0 && <p>No expenses found.</p>}
+      {filteredYearExpenses.length > 0 &&
+        filteredYearExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))} */}
+
+      {/* Method 1 - Rendering conditional content */}
+      {/* {filteredYearExpenses.length === 0 ? (
+        <p>No expenses found.</p>
+      ) : (
+        filteredYearExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))
+      )} */}
 
       {/* Commented the display of the entire expense array */}
       {/* {props.item_array.map((expense) => (
